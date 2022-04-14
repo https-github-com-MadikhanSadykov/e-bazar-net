@@ -6,7 +6,8 @@ const routes = {
   '/': HomeScreen,
   'product/:id': ProductScreen,
 };
-const router = () => {
+
+const router = async() => {
   const request = parseRequestUrl();
   const parseUrl = 
   (request.resourse ? `/${request.resourse}` : '/' ) + 
@@ -15,7 +16,7 @@ const router = () => {
   const srceen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
 
   const main = document.getElementById('main-container');
-  main.innerHTML = srceen.render();
+  main.innerHTML = await srceen.render();
 };
 window.addEventListener('load', router);
 window.addEventListener('hashchange', router)
