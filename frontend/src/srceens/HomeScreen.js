@@ -1,4 +1,4 @@
-import data from '../data.js';
+import data from '../data.js'
 const HomeScreen = {
   render: () => {
     const { products } = data;
