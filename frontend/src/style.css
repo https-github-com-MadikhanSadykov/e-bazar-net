@@ -11,6 +11,15 @@ body {
   margin: 0;
 }
 
+a{
+  color: black;
+  text-decoration: none;
+}
+
+a:hover{
+  color: #FFC107;
+}
+
 .grid-container{
   display:grid;
   grid-template-areas: 
@@ -24,7 +33,7 @@ body {
 
 header{
   grid-area: header;
-  background-color: rgb(52, 152, 170);
+  background-color: #2196f3;
   color: whitesmoke;
   display: flex;
   justify-content: space-between;
@@ -40,7 +49,7 @@ header a{
 }
 
 header a:hover{
-  color: rgba(229, 255, 0, 0.842);
+  color: #FFC107;
 }
 
 .brand a {
@@ -48,9 +57,56 @@ header a:hover{
 }
 
 footer{
-  background-color: rgb(52, 152, 170) ;
+  background-color: #2196f3 ;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+
+
+
+/* PRODUCTS */
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.products li {
+  flex: 0 1 30rem;
+  margin: 1rem;
+  margin-bottom: 0;
+  height: 45rem;
+  border-top: 0.2rem #b3b3b3 solid;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.product img {
+  max-height: 360px;
+  max-width: 30em;
+  margin-top: 2rem;
+}
+
+.product-name {
+  line-height: 2.2rem;
+}
+
+.product-brand {
+  font-size: 1.2rem;
+  color: black;
+}
+
+.product-price{
+  font-size: 2rem;
 }
