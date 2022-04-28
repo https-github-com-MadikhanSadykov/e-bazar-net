@@ -1,14 +1,15 @@
+
 import axios from 'axios';
 const HomeScreen = {
-  render: async() => {
+  render: async () => {
     const response = await axios({
-      ulr: 'http://localhost:5000/api/products',
-      headers:{
-        "Content-Type":"application/json",
-      }
+      url: "http://localhost:5000/api/products",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    if(!response || !response.statusText !== 'OK') {
-      return `<div>Error in getting data</div>`;
+    if (!response || !response.statusText !== "OK") {
+      return <div>Error in getting data</div>;
     }
     const products = response.data;
 
@@ -37,7 +38,7 @@ const HomeScreen = {
       </li>
       `
         )
-        .join('\n')}
+        .join("\n")}
     `;
   },
 };
