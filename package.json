@@ -1,0 +1,24 @@
+{
+  "name": "e-bazar",
+  "version": "1.0.0",
+  "description": "- [@MadikhanSadykov](https://github.com/MadikhanSadykov) - [@Abdul-Madi Erkhanat](https://github.com/ABDMAD02) - [@NurbolatNurzhanov](https://github.com/nrblt)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/https-github-com-MadikhanSadykov/e-bazar-net.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/https-github-com-MadikhanSadykov/e-bazar-net/issues"
+  },
+  "homepage": "https://github.com/https-github-com-MadikhanSadykov/e-bazar-net#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  }
+}
