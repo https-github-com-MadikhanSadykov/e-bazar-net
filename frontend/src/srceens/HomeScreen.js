@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import axios from "axios";
 import Rating from "../components/Rating";
 
+=======
+
+import axios from 'axios';
+>>>>>>> 3d183ccbcb3316c66466f732f36d90dbfaee8158
 const HomeScreen = {
   render: async () => {
     const response = await axios({
@@ -9,8 +14,13 @@ const HomeScreen = {
         "Content-Type": "application/json",
       },
     });
+<<<<<<< HEAD
     if (!response) {
       return `<div>Error in getting data</div>`;
+=======
+    if (!response || !response.statusText !== "OK") {
+      return <div>Error in getting data</div>;
+>>>>>>> 3d183ccbcb3316c66466f732f36d90dbfaee8158
     }
     const products = response.data;
 
