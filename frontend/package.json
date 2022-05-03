@@ -8,19 +8,13 @@
   },
   "author": "",
   "license": "ISC",
-<<<<<<< HEAD
-=======
-  "description": "",
->>>>>>> 3d183ccbcb3316c66466f732f36d90dbfaee8158
   "dependencies": {
     "axios": "^0.27.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
-<<<<<<< HEAD
+
   },
   "description": ""
-=======
-  }
->>>>>>> 3d183ccbcb3316c66466f732f36d90dbfaee8158
+
 }
