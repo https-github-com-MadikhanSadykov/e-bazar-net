@@ -1,7 +1,5 @@
-
 import axios from "axios";
 import Rating from "../components/Rating";
-
 
 const HomeScreen = {
   render: async () => {
@@ -14,7 +12,6 @@ const HomeScreen = {
 
     if (!response) {
       return `<div>Error in getting data</div>`;
-
     }
     const products = response.data;
 
