@@ -1,6 +1,6 @@
 import { signin } from '../api.js';
 import { getUserInfo, setUserInfo } from '../localStorage.js';
-import { showLoading, hideLoading, showMessage } from '../utils.js';
+import { showLoading, hideLoading, showMessage, redirectUser } from '../utils.js';
 
 const SigninScreen = {
   after_render: () => {
@@ -24,6 +24,9 @@ const SigninScreen = {
       });
   },
   render: () => {
+    if (getUserInfo().name) {
+      redirectUser();
+    }
     return `
     <div class="form-container">
       <form id="signin-form">
