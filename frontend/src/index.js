@@ -5,6 +5,7 @@ import CartScreen from "./screens/CartScreen.js";
 import SigninScreen from './screens/SigninScreen.js';
 import Header from './components/Header.js';
 import { parseRequestUrl, showLoading, hideLoading } from './utils.js';
+import RegisterScreen from './screens/RegisterScreen.js';
 
 const routes = {
   "/": HomeScreen,
@@ -12,6 +13,7 @@ const routes = {
   "/cart/:id": CartScreen,
   "/cart": CartScreen,
   "/signin": SigninScreen,
+  "/register": RegisterScreen,
 };
 
 const router = async () => {
