@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import data from './data.js';
 import config from './config.js';
 import userRouter from './routers/userRouter.js';
+import orderRouter from './routers/orderRouter.js';
 
 mongoose
   .connect(config.MONGODB_URL, {
@@ -21,6 +22,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 app.get('/api/products', (req, res) => {
   res.send(data.products);
 });
