@@ -2,21 +2,22 @@ import ProductScreen from "./screens/ProductScreen.js";
 import HomeScreen from "./screens/HomeScreen.js";
 import Error404Screen from "./screens/Error404Screen.js";
 import CartScreen from "./screens/CartScreen.js";
-import SigninScreen from './screens/SigninScreen.js';
-import Header from './components/Header.js';
-import { parseRequestUrl, showLoading, hideLoading } from './utils.js';
-import RegisterScreen from './screens/RegisterScreen.js';
-import ProfileScreen from './screens/ProfileScreen.js';
-import ShippingScreen from './screens/ShippingScreen.js';
-import PaymentScreen from './screens/PaymentScreen.js';
-import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
-import OrderScreen from './screens/OrderScreen.js';
-import DashboardScreen from './screens/DashboardScreen';
+import SigninScreen from "./screens/SigninScreen.js";
+import Header from "./components/Header.js";
+import { parseRequestUrl, showLoading, hideLoading } from "./utils.js";
+import RegisterScreen from "./screens/RegisterScreen.js";
+import ProfileScreen from "./screens/ProfileScreen.js";
+import ShippingScreen from "./screens/ShippingScreen.js";
+import PaymentScreen from "./screens/PaymentScreen.js";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
+import OrderScreen from "./screens/OrderScreen.js";
+import DashboardScreen from "./screens/DashboardScreen";
+import ProductListScreen from "./screens/ProductListScreen";
 
 const routes = {
   "/": HomeScreen,
   "/product/:id": ProductScreen,
-  '/order/:id': OrderScreen,
+  "/order/:id": OrderScreen,
   "/cart/:id": CartScreen,
   "/cart": CartScreen,
   "/signin": SigninScreen,
@@ -25,7 +26,8 @@ const routes = {
   "/shipping": ShippingScreen,
   "/payment": PaymentScreen,
   "/placeorder": PlaceOrderScreen,
-  '/dashboard': DashboardScreen,
+  "/dashboard": DashboardScreen,
+  "/productlist": ProductListScreen,
 };
 
 const router = async () => {
@@ -37,10 +39,10 @@ const router = async () => {
     (request.verb ? `/${request.verb}` : "");
   const screen = routes[parseUrl] ? routes[parseUrl] : Error404Screen;
 
-  const header = document.getElementById('header-container');
+  const header = document.getElementById("header-container");
   header.innerHTML = await Header.render();
   await Header.after_render();
-  
+
   const main = document.getElementById("main-container");
   main.innerHTML = await screen.render();
   if (screen.after_render) await screen.after_render();
