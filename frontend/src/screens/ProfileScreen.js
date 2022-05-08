@@ -1,4 +1,4 @@
-import { update, getMyOrders } from '../api';;
+import { update, getMyOrders } from '../api.js';
 import { getUserInfo, setUserInfo, clearUser } from '../localStorage.js';
 import { showLoading, hideLoading, showMessage } from '../utils.js';
 

@@ -1,4 +1,4 @@
-import DashboardMenu from '../components/DashboardMenu';
+import DashboardMenu from '../components/DashboardMenu.js';
 
 const DashboardScreen = {
   after_render: () => {},

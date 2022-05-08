@@ -1,6 +1,6 @@
 import axios from "axios";
-import Rating from "../components/Rating";
-import { getProducts } from "../api";
+import Rating from "../components/Rating.js";
+import { getProducts } from "../api.js";
 
 const HomeScreen = {
   render: async () => {

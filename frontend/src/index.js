@@ -11,8 +11,8 @@ import ShippingScreen from "./screens/ShippingScreen.js";
 import PaymentScreen from "./screens/PaymentScreen.js";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen.js";
 import OrderScreen from "./screens/OrderScreen.js";
-import DashboardScreen from "./screens/DashboardScreen";
-import ProductListScreen from "./screens/ProductListScreen";
+import DashboardScreen from "./screens/DashboardScreen.js";
+import ProductListScreen from "./screens/ProductListScreen.js";
 
 const routes = {
   "/": HomeScreen,
