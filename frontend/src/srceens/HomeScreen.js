@@ -1,10 +1,11 @@
-import axios from "axios";
-import Rating from "../components/Rating.js";
-import { getProducts } from "../api.js";
+import Rating from '../components/Rating';
+import { getProducts } from '../api';
+import { parseRequestUrl } from '../utils';
 
 const HomeScreen = {
   render: async () => {
-    const products = await getProducts();
+    const { value } = parseRequestUrl();
+    const products = await getProducts({ searchKeyword: value });
     if (products.error) {
       return `<div class="error">${products.error}</div>`;
     }
@@ -24,14 +25,12 @@ const HomeScreen = {
             ${product.name}
           </a>
         </div>
-
         <div class="product-rating">
           ${Rating.render({
             value: product.rating,
             text: `${product.numReviews} reviews`,
           })}
         </div>
-
         <div class="product-brand">
           ${product.brand}
         </div>
@@ -42,7 +41,7 @@ const HomeScreen = {
       </li>
       `
         )
-        .join("\n")}
+        .join('\n')}
     `;
   },
 };

@@ -1,6 +1,6 @@
-import DashboardMenu from "../components/DashboardMenu.js";
-import { getProducts, createProduct, deleteProduct } from '../api.js';
-import { showLoading, hideLoading, rerender, showMessage } from '../utils.js';
+import DashboardMenu from '../components/DashboardMenu';
+import { getProducts, createProduct, deleteProduct } from '../api';
+import { showLoading, hideLoading, rerender, showMessage } from '../utils';
 
 const ProductListScreen = {
   after_render: () => {
@@ -10,10 +10,10 @@ const ProductListScreen = {
         const data = await createProduct();
         document.location.hash = `/product/${data.product._id}/edit`;
       });
-      const editButtons = document.getElementsByClassName('edit-button');
-      Array.from(editButtons).forEach((editButton) => {
+    const editButtons = document.getElementsByClassName('edit-button');
+    Array.from(editButtons).forEach((editButton) => {
       editButton.addEventListener('click', () => {
-      document.location.hash = `/product/${editButton.id}/edit`;
+        document.location.hash = `/product/${editButton.id}/edit`;
       });
     });
     const deleteButtons = document.getElementsByClassName('delete-button');
@@ -36,7 +36,7 @@ const ProductListScreen = {
     const products = await getProducts();
     return `
     <div class="dashboard">
-    ${DashboardMenu.render({ selected: "products" })}
+    ${DashboardMenu.render({ selected: 'products' })}
     <div class="dashboard-content">
       <h1>Products</h1>
       <button id="create-product-button" class="primary">
@@ -71,7 +71,7 @@ const ProductListScreen = {
             </tr>
             `
               )
-              .join("\n")}
+              .join('\n')}
           </tbody>
         </table>
       </div>

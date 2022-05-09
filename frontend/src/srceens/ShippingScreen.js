@@ -1,5 +1,5 @@
-import { getUserInfo, getShipping, setShipping } from '../localStorage.js';
-import CheckoutSteps from '../components/CheckoutSteps.js';
+import { getUserInfo, getShipping, setShipping } from '../localStorage';
+import CheckoutSteps from '../components/CheckoutSteps';
 
 const ShippingScreen = {
   after_render: () => {
@@ -46,6 +46,7 @@ const ShippingScreen = {
             <label for="country">Country</label>
             <input type="text" name="country" id="country" value="${country}" />
           </li>
+
           <li>
             <button type="submit" class="primary">Continue</button>
           </li>        

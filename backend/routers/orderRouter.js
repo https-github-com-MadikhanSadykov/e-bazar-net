@@ -1,12 +1,11 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import { isAuth, isAdmin } from '../utils.js';
-import Order from '../models/orderModel.js';
-import User from '../models/userModel.js';
-import Product from '../models/productModel.js';
+import { isAuth, isAdmin } from '../utils';
+import Order from '../models/orderModel';
+import User from '../models/userModel';
+import Product from '../models/productModel';
 
 const orderRouter = express.Router();
-
 orderRouter.get(
   '/summary',
   isAuth,
@@ -46,10 +45,14 @@ orderRouter.get(
         },
       },
     ]);
-    res.send({ users, orders, dailyOrders, productCategories });
+    res.send({
+      users,
+      orders: orders.length === 0 ? [{ numOrders: 0, totalSales: 0 }] : orders,
+      dailyOrders,
+      productCategories,
+    });
   })
 );
-
 orderRouter.get(
   '/',
   isAuth,
@@ -60,10 +63,14 @@ orderRouter.get(
   })
 );
 
-orderRouter.get('/mine', isAuth, expressAsyncHandler( async (req, res) => {
-    const orders = await Order.find({user: req.user._id});
+orderRouter.get(
+  '/mine',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find({ user: req.user._id });
     res.send(orders);
-}))
+  })
+);
 orderRouter.get(
   '/:id',
   isAuth,
@@ -86,7 +93,7 @@ orderRouter.post(
       shipping: req.body.shipping,
       payment: req.body.payment,
       itemsPrice: req.body.itemsPrice,
-      taxtPrice: req.body.taxtPrice,
+      taxPrice: req.body.taxPrice,
       shippingPrice: req.body.shippingPrice,
       totalPrice: req.body.totalPrice,
     });
@@ -94,7 +101,6 @@ orderRouter.post(
     res.status(201).send({ message: 'New Order Created', order: createdOrder });
   })
 );
-
 orderRouter.delete(
   '/:id',
   isAuth,

@@ -4,9 +4,9 @@ import {
   hideLoading,
   showMessage,
   rerender,
-} from '../utils.js';
-import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api.js';
-import { getUserInfo } from '../localStorage.js';
+} from '../utils';
+import { getOrder, getPaypalClientId, payOrder, deliverOrder } from '../api';
+import { getUserInfo } from '../localStorage';
 
 const addPaypalSdk = async (totalPrice) => {
   const clientId = await getPaypalClientId();
@@ -70,19 +70,18 @@ const handlePayment = (clientId, totalPrice) => {
     hideLoading();
   });
 };
-
 const OrderScreen = {
   after_render: async () => {
     const request = parseRequestUrl();
-    document
-      .getElementById('deliver-order-button')
-      .addEventListener('click', async () => {
+    if (document.getElementById('deliver-order-button')) {
+      document.addEventListener('click', async () => {
         showLoading();
         await deliverOrder(request.id);
         hideLoading();
         showMessage('Order Delivered.');
         rerender(OrderScreen);
       });
+    }
   },
   render: async () => {
     const { isAdmin } = getUserInfo();
@@ -168,15 +167,16 @@ const OrderScreen = {
                  <li><div>Items</div><div>$${itemsPrice}</div></li>
                  <li><div>Shipping</div><div>$${shippingPrice}</div></li>
                  <li><div>Tax</div><div>$${taxPrice}</div></li>
-                 <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li> 
+                 <li class="total"><div>Order Total</div><div>$${totalPrice}</div></li>                  
                  <li><div class="fw" id="paypal-button"></div></li>
                  <li>
                  ${
-                  isPaid && !isDelivered && isAdmin
-                    ? `<button id="deliver-order-button" class="primary fw">Deliver Order</button>`
-                    : ''
-                }
-                <li>
+                   isPaid && !isDelivered && isAdmin
+                     ? `<button id="deliver-order-button" class="primary fw">Deliver Order</button>`
+                     : ''
+                 }
+                 <li>
+               
         </div>
       </div>
     </div>

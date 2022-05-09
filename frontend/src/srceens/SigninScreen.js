@@ -1,16 +1,15 @@
-import { register } from '../api.js';
-import { getUserInfo, setUserInfo } from '../localStorage.js';
-import { showLoading, hideLoading, showMessage, redirectUser } from '../utils.js';
+import { signin } from '../api';
+import { getUserInfo, setUserInfo } from '../localStorage';
+import { showLoading, hideLoading, showMessage, redirectUser } from '../utils';
 
-const RegisterScreen = {
+const SigninScreen = {
   after_render: () => {
     document
-      .getElementById('register-form')
+      .getElementById('signin-form')
       .addEventListener('submit', async (e) => {
         e.preventDefault();
         showLoading();
-        const data = await register({
-          name: document.getElementById('name').value,
+        const data = await signin({
           email: document.getElementById('email').value,
           password: document.getElementById('password').value,
         });
@@ -29,14 +28,10 @@ const RegisterScreen = {
     }
     return `
     <div class="form-container">
-      <form id="register-form">
+      <form id="signin-form">
         <ul class="form-items">
           <li>
-            <h1>Create Account</h1>
-          </li>
-          <li>
-            <label for="name">Name</label>
-            <input type="name" name="name" id="name" />
+            <h1>Sign-In</h1>
           </li>
           <li>
             <label for="email">Email</label>
@@ -47,16 +42,12 @@ const RegisterScreen = {
             <input type="password" name="password" id="password" />
           </li>
           <li>
-            <label for="repassword">Re-Enter Password</label>
-            <input type="password" name="repassword" id="repassword" />
-          </li>
-          <li>
-            <button type="submit" class="primary">Register</button>
+            <button type="submit" class="primary">Signin</button>
           </li>
           <li>
             <div>
-              Already have an account?
-              <a href="/#/signin">Sign-In </a>
+              New User?
+              <a href="/#/register">Create your account </a>
             </div>
           </li>
         </ul>
@@ -65,4 +56,4 @@ const RegisterScreen = {
     `;
   },
 };
-export default RegisterScreen;
+export default SigninScreen;

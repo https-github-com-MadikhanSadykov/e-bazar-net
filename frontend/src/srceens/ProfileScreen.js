@@ -1,6 +1,6 @@
-import { update, getMyOrders } from '../api.js';
-import { getUserInfo, setUserInfo, clearUser } from '../localStorage.js';
-import { showLoading, hideLoading, showMessage } from '../utils.js';
+import { update, getMyOrders } from '../api';
+import { getUserInfo, setUserInfo, clearUser } from '../localStorage';
+import { showLoading, hideLoading, showMessage } from '../utils';
 
 const ProfileScreen = {
   after_render: () => {
@@ -59,13 +59,11 @@ const ProfileScreen = {
           </li>
           <li>
           <button type="button" id="signout-button" >Sign Out</button>
-        
-        
-        </li>
+        </li>        
         </ul>
       </form>
     </div>
-    </div>
+      </div>
       <div class="profile-orders">
       <h2>Order History</h2>
         <table>
@@ -102,6 +100,8 @@ const ProfileScreen = {
         </table>
       </div>
     </div>
+
+
     
     `;
   },

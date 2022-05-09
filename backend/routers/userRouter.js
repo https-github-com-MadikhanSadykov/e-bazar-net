@@ -1,7 +1,7 @@
 import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
-import User from '../models/userModel.js';
-import { generateToken, isAuth } from '../utils.js';
+import User from '../models/userModel';
+import { generateToken, isAuth } from '../utils';
 
 const userRouter = express.Router();
 
@@ -11,8 +11,8 @@ userRouter.get(
     try {
       const user = new User({
         name: 'admin',
-        email: 'Madi@example.com',
-        password: 'qwertyui78',
+        email: 'admin@example.com',
+        password: 'jsamazona',
         isAdmin: true,
       });
       const createdUser = await user.save();
