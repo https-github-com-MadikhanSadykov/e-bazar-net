@@ -2,11 +2,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import data from './data.js';
 import config from './config.js';
 import userRouter from './routers/userRouter.js';
 import orderRouter from './routers/orderRouter.js';
 import productRouter from './routers/productRouter.js';
+import uploadRouter from './routers/uploadRouter.js';
 
 mongoose
   .connect(config.MONGODB_URL, {
@@ -22,6 +22,7 @@ mongoose
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
