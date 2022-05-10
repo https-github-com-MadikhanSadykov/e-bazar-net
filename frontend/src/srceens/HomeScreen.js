@@ -25,7 +25,8 @@ const HomeScreen = {
    margin:30px; padding:50px">
     <h2 class="w3-wide">E-Bazar</h2>
     <p class="w3-opacity"><i>E-Commerce website</i></p>
-    <p class="w3-justify">Responsive market palce that is suitable for any kind of product's category. Ingegrated with PayPal API</p>
+    <p class="w3-justify">Responsive market palce that is suitable for any kind of product's category. Integrated with PayPal API.<br>
+        Has admin statistic dashboard and managing orders and products.</p>
   </section>
     
 
