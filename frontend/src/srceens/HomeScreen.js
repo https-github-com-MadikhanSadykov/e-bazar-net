@@ -14,7 +14,7 @@ const HomeScreen = {
     
     return `
     <section style="margin-top: 80px">
-    <img class="mySlides" src="images/mod.png"
+    <img class="mySlides" src="images/mod.jpg"
     style="width:100%" >
     </section>
 
