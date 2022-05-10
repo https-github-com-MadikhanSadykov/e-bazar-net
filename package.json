@@ -7,7 +7,8 @@
     "start": "nodemon --watch backend --exec babel-node backend/server.js",
     "build": "del dest 2>nul && babel backend -d dist && cd frontend && npm install && npm run build",
     "serve": "node dist/server.js",
-    "heroku-prebuild": "cd frontend && npm install --dev"
+    "heroku-prebuild": "cd frontend && npm install --dev",
+    "heroku-postbuild":"npm run build && cd frontend && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -44,4 +45,5 @@
     "node": "12.4.0",
     "npm": "6.9.0"
   }
+  
 }
