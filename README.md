@@ -1,3 +1,3 @@
 
 ## 🔗 Link to Heroku e-barak
-[![Heroku e-bazar]https://e-bazar-net.herokuapp.com/)](https://e-bazar-net.herokuapp.com/)
+[![Heroku e-store]https://e-store-master.herokuapp.com)](https://e-store-master.herokuapp.com)
